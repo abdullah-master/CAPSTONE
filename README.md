@@ -1,28 +1,28 @@
 # AgroPrice Forecast 🌾
 
-An intelligent agricultural commodity price prediction system with AI-powered chat assistance.
+An AI-powered agricultural commodity price prediction system with real-time forecasting and chat assistance.
 
 ## Features 🚀
 
-- **Price Prediction**: Machine learning-based price forecasting for agricultural commodities
-- **AI Assistant**: Multi-lingual chatbot for agricultural queries (English, Hindi, Marathi)
-- **Interactive UI**: Modern, responsive interface with glassmorphism design
-- **Location-based**: State, district and market-specific predictions
-- **Commodity Coverage**: Support for multiple commodities and varieties
+- **Intelligent Price Prediction**: Advanced machine learning models for accurate price forecasting of agricultural commodities.
+- **AI-Powered Assistant**: Multi-lingual chatbot for agricultural queries (English, Hindi, Marathi).
+- **Interactive User Interface**: A modern, responsive interface featuring a sleek glassmorphism design.
+- **Location-Specific Insights**: State, district, and market-based price predictions.
+- **Comprehensive Commodity Coverage**: Supports multiple commodities and varieties for diverse agricultural needs.
 
-## Tech Stack
+## Tech Stack 🛠️
 
 - **Frontend**: HTML5, CSS3, JavaScript, jQuery
 - **Backend**: Python, Flask
-- **ML Models**: 
+- **Machine Learning Models**: 
   - Random Forest
   - XGBoost
   - Stacking Ensemble
-- **AI Integration**: Groq API with LLaMa 3.3 70B model
+- **AI Integration**: Groq API powered by LLaMa 3.3 70B model
 - **Data Processing**: Pandas, NumPy
-- **Visualization**: Custom CSS animations
+- **Visualization**: Custom CSS animations for interactive data representation
 
-## Project Structure
+## Project Structure 📁
 
 ```
 capstone/
@@ -41,180 +41,144 @@ capstone/
 └── README.md
 ```
 
-## Setup Instructions
+## 📸 Screenshots
 
-1. Clone the repository:
+#### 🔹 Home Page  
+![Home Page](static/images/homepage.png)
+
+#### 🔹 Price Prediction Page  
+![Price Prediction](static/images/prediction_page.png)
+
+#### 🔹 AI Chat Assistant  
+![Chat Assistant](static/images/chat_assistant.png)
+
+## Setup Instructions 🚀
+
+### 1. Clone the Repository
 ```bash
 git clone [repository-url]
 cd capstone
 ```
 
-2. Download required files:
-   - Download [Price_Agriculture_commodities_Week.csv](your-data-link) and place in `data/` folder
-   - Download [stacking_ensemble_model.pkl](your-model-link) and place in `models/` folder
+### 2. Download Required Files
+- **Dataset**: [Price_Agriculture_commodities_Week.csv](your-data-link) → Place in `data/` folder.
+- **Trained Model**: [stacking_ensemble_model.pkl](your-model-link) → Place in `models/` folder.
 
-3. Create and activate virtual environment:
+### 3. Create and Activate a Virtual Environment
 ```bash
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
 ```
 
-4. Install dependencies:
+### 4. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-5. Set up environment variables:
-- Create a `.env` file
-- Add your Groq API key:
+### 5. Set Up Environment Variables
+- Create a `.env` file and add the following:
 ```
 GROQ_API_KEY=your_api_key_here
 ```
 
-6. Run the application:
+### 6. Run the Application
 ```bash
 python app.py
 ```
 
-7. Access the application at `http://localhost:5000`
+### 7. Access the Application
+Visit: [http://localhost:5000](http://localhost:5000)
 
-## Large Files Download
-
-Due to GitHub's file size limitations, the following files need to be downloaded separately:
-
-1. Download model file:
-   - File: `stacking_ensemble_model.pkl` 
-   - Size: ~200MB
-   - Download from: [Google Drive Link]
-   - Place in: `models/` directory
-
-2. Download dataset:
-   - File: `Price_Agriculture_commodities_Week.csv`
-   - Size: ~150MB
-   - Download from: [Google Drive Link]
-   - Place in: `data/` directory
-
-## Model Information
-
-- **Ensemble Model**: Combines Random Forest and XGBoost using stacking
-- **Features**: State, District, Market, Commodity, Variety, Grade, Year, Month, DayOfWeek
-- **Target**: Modal Price per 100kg
-- **Validation**: Cross-validation with time-series split
-- **Metrics**: RMSE, MAE, R² Score
-
-## Model Performance Metrics 📊
-
-### Individual Models
-
-**Random Forest**
-- R² Score: 0.8592 (85.92% accuracy)
-- Mean Absolute Error: ₹510.86
-- Root Mean Square Error: ₹873.03
-
-**XGBoost**
-- R² Score: 0.8758 (87.58% accuracy)
-- Mean Absolute Error: ₹509.74
-- Root Mean Square Error: ₹820.07
-
-### Ensemble Models
-
-**Simple Averaging Ensemble**
-- R² Score: 0.8764 (87.64% accuracy)
-- Mean Absolute Error: ₹489.17
-- Root Mean Square Error: ₹818.11
-
-**Weighted Averaging Ensemble**
-- R² Score: 0.8777 (87.77% accuracy)
-- Mean Absolute Error: ₹489.75
-- Root Mean Square Error: ₹813.79
-
-**Stacking Ensemble (Production Model)**
-- R² Score: 0.8790 (87.90% accuracy)
-- Mean Absolute Error: ₹489.53
-- Root Mean Square Error: ₹809.30
+## Model Information 📊
 
 ### Model Architecture
+- **Base Models**: Random Forest and XGBoost
+- **Meta-Model**: Linear Regression for optimal stacking ensemble predictions
+- **Feature Engineering**: Custom selection and encoding
+- **Preprocessing**: Outlier removal using IQR and normalization techniques
 
-Our final production model uses a stacking ensemble approach:
-1. **Base Models**: Random Forest and XGBoost
-2. **Meta-Model**: Linear Regression for optimal predictions
-3. **Feature Engineering**: Custom feature selection and encoding
-4. **Data Processing**: IQR-based outlier removal and normalization
+### Performance Metrics
 
-### Performance Analysis
+| Model | R² Score | MAE (₹) | RMSE (₹) |
+|--------|---------|---------|---------|
+| **Random Forest** | 85.92% | 510.86 | 873.03 |
+| **XGBoost** | 87.58% | 509.74 | 820.07 |
+| **Simple Averaging Ensemble** | 87.64% | 489.17 | 818.11 |
+| **Weighted Averaging Ensemble** | 87.77% | 489.75 | 813.79 |
+| **Stacking Ensemble (Production Model)** | 87.90% | 489.53 | 809.30 |
 
-- Stacking ensemble shows consistent superior performance
-- 87.90% accuracy in price predictions
-- Average error margin of ₹489.53 per 100kg
-- Robust against market volatility
-- Validated across multiple commodities and regions
+### Key Insights
+- The **stacking ensemble model** provides the most accurate price predictions.
+- Performance validated across multiple commodities and regions.
+- Low average error margin of **₹489.53 per 100kg**.
+- Robust against market fluctuations with high generalization ability.
 
-## Model Training Infrastructure
-
-- Training Data: 5+ years of historical price data
-- Validation Method: Time-series cross-validation
-- Infrastructure: Python 3.8+ with scikit-learn
-- Memory Optimization: Incremental learning techniques
-- Preprocessing: Automated pipeline with categorical encoding
-
-## Real-time Capabilities
+## Real-Time Capabilities ⏳
 
 - Dynamic price updates
 - Automated retraining pipeline
 - Market trend analysis
 - Seasonal pattern recognition
-- Multi-commodity support
+- Multi-commodity forecasting
 
-## AI Assistant Capabilities
+## AI Assistant Capabilities 🤖
 
 - Agricultural best practices
-- Crop disease identification
+- Crop disease diagnosis
 - Weather impact analysis
-- Market trends
-- Government schemes
+- Market trends and forecasts
+- Government farming schemes
 - Multi-lingual support
-- Sustainable farming practices
 - Pest control guidance
+- Sustainable farming recommendations
 
-## Data Processing
+## API Endpoints ⚡
 
-- Outlier removal using IQR method
-- Feature encoding for categorical variables
-- Data normalization
-- Minimum data threshold for commodities (≥50 records)
+- `/` → Main application UI
+- `/predict` → Price prediction API
+- `/chat` → AI assistant API
+- `/get_districts/<state>` → Fetch districts dynamically
+- `/get_markets/<district>` → Fetch markets dynamically
+- `/get_varieties/<commodity>` → Fetch varieties dynamically
 
-## API Endpoints
+## Large Files Download 📂
 
-- `/`: Main application interface
-- `/predict`: Price prediction endpoint
-- `/chat`: AI assistant endpoint
-- `/get_districts/<state>`: Dynamic district options
-- `/get_markets/<district>`: Dynamic market options
-- `/get_varieties/<commodity>`: Dynamic variety options
+Due to GitHub’s file size limits, the following files must be downloaded separately:
+
+1. **Trained Model**
+   - File: `stacking_ensemble_model.pkl`
+   - Size: ~200MB
+   - Place in `models/` directory
+
+2. **Dataset**
+   - File: `Price_Agriculture_commodities_Week.csv`
+   - Size: ~150MB
+   - Place in `data/` directory
+
+## Contribution Guidelines 🤝
+
+We welcome contributions to improve AgroPrice Forecast!
+
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature/your-feature-name`
+3. Commit your changes: `git commit -m 'Add feature: your-feature-name'`
+4. Push to the branch: `git push origin feature/your-feature-name`
+5. Open a Pull Request.
 
 ## Contact Information 📧
 
-For questions, suggestions, or collaborations:
+For queries, suggestions, or collaborations:
 
-**Abdullah Mater**  
-Senior Developer  
-Email: abdullahmater2434@gmail.com  
-Project Link: [GitHub Repository]
+**Abdullah Master**   
+📧 Email: [abdullahmater2434@gmail.com](mailto:abdullahmater2434@gmail.com)  
 
-## Contributing 🤝
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+## License 📜
 
-## License and Attribution 📄
-
-This project is licensed under the MIT License.  
-See the LICENSE file for details.
+This project is licensed under the **SIT License**. See the `LICENSE` file for details.
 
 ---
-<p align="center">Made with ❤️ by Abdullah Mater</p>
+<p align="center">Made with ❤️ by Abdullah Master</p>
 <p align="center">© 2024 AgroPrice Forecast. All rights reserved.</p>
+
