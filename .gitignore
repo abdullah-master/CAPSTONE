@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Large model files
+models/stacking_ensemble_model.pkl
+models/price_prediction_model.pkl
+models/preprocessor.pkl
+
+# Large data files
+data/Price_Agriculture_commodities_Week.csv
